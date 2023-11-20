@@ -1,3 +1,5 @@
+using API.Helpers;
+using AutoMapper;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +8,9 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// the auto mapper 
+builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -19,7 +24,12 @@ builder.Services.AddDbContext<StoreContext>(options =>
     )
 );
 
+// add the repositories for dependency injection
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+// adding the generic repository for dependency injection
+builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+
 
 var app = builder.Build();
 
@@ -49,6 +59,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseStaticFiles();
 
 app.UseAuthorization();
 
