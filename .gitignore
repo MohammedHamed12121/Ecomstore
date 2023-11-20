@@ -3,5 +3,14 @@ bin
 appsettings.json
 
 *.db
+*.db-shm
+*.db-wal
 
 *.rtf
+
+*.jpg
+*.webp
+
+
+
+.fake
