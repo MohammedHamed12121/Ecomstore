@@ -11,6 +11,6 @@ appsettings.json
 *.jpg
 *.webp
 
-
+.vs
 
 .fake

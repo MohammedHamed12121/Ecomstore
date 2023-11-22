@@ -1,9 +1,9 @@
+using API.Extensions;
 using API.Helpers;
+using API.Middlewares;
 using AutoMapper;
-using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddApplicationServices();
+
+builder.Services.AddSwaggerDocumentation();
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 // The store connection string with sqlite
 builder.Services.AddDbContext<StoreContext>(options => 
@@ -23,13 +26,6 @@ builder.Services.AddDbContext<StoreContext>(options =>
         builder.Configuration.GetConnectionString("StoreConnection")
     )
 );
-
-// add the repositories for dependency injection
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
-// adding the generic repository for dependency injection
-builder.Services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
-
 
 var app = builder.Build();
 
@@ -50,13 +46,15 @@ using(var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occured during migration");
     }
 }
+app.UseDeveloperExceptionPage();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerDocumentation();
 }
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseStatusCodePagesWithReExecute("/errors/{0}"); 
 
 app.UseHttpsRedirection();
 
