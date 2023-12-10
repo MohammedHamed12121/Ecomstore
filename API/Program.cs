@@ -10,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 // the auto mapper 
+
+builder.Services.AddCors(options => options.AddPolicy(name: "ECOMSTORE", policy =>
+{
+    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+}));
+
+
+
 builder.Services.AddAutoMapper(typeof(MappingProfiles));
 
 builder.Services.AddControllers();
@@ -53,6 +61,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwaggerDocumentation();
 }
+
+app.UseCors("ECOMSTORE");
+
+
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/errors/{0}"); 
 
