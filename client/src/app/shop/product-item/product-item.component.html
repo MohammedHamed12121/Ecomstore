@@ -1,0 +1,17 @@
+<div class="card">
+    <img src="http://{{product?.pictureUrl?.split('://')?.pop()}}" alt="Product Image">
+    <div class="card-content">
+        <!-- <div class="product-name">{{product?.name}}</div> -->
+        <a href="#" class="product-name">
+            <h6 class="text-uppercase ">{{product?.name}}</h6>
+        </a>
+        <!-- <div class="product-description">{{product?.description}}</div> -->
+        <div class="price">{{product?.price | currency}}</div>
+        <div class="btn-group mt-auto ">
+            <button type="button" class="btn btn-outline-secondary fa fa-shopping-cart  mr-2"></button>
+            <button type="button" class="btn btn-outline-secondary">View</button>
+
+        </div>
+        
+    </div>
+</div>

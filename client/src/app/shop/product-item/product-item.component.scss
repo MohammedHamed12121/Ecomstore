@@ -1,0 +1,44 @@
+.card {
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    height: 400px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.product-name {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.price {
+    font-size: 1.4em;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+.btn-group{
+    width: 100%;
+}
+
+.btn{
+    width: 50%;
+}
