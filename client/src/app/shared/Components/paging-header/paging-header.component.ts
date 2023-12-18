@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./paging-header.component.scss']
 })
 export class PagingHeaderComponent implements OnInit {
-  @Input() pageNumber: number=1;
-  @Input() pageSize: number =1;
-  @Input() totalCount: number =1;
+  @Input() pageNumber?: number;
+  @Input() pageSize?: number;
+  @Input() totalCount?: number;
   
   constructor() { }
 
