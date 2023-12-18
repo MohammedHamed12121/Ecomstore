@@ -1,22 +1,18 @@
-    <style>
-        
-    </style>
+<nav>
+    <div class="logo" routerLink="/">ECOMSTORE</div>
 
-    <nav>
-        <div class="logo">ECOMSTORE</div>
+    <ul class="nav-links">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-
-        <div class="icons">
-            <a href="#" class="cart-icon">
-                <i class="fa fa-shopping-cart fa-2x text-dark"></i>
-                <span class="cart-count">1</span>
-            </a>
-            <button class="button">Login</button>
-            <button class="button">Sign Up</button>
-        </div>
-    </nav>
+    <div class="icons">
+        <a href="#" class="cart-icon">
+            <i class="fa fa-shopping-cart fa-2x text-dark"></i>
+            <span class="cart-count">1</span>
+        </a>
+        <button class="button">Login</button>
+        <button class="button">Sign Up</button>
+    </div>
+</nav>
