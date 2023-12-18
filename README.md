@@ -7,8 +7,8 @@ using :
 - generic repository pattern
 - automapper
 - custom error handling
-- bootstrap
-- font-awosome
+- bootstrap and font-awosome
+- ngx-toastr
 
 Project Contians:
 * Core project : for Entities( this is the domain project)
