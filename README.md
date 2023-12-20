@@ -8,12 +8,13 @@ using :
 - automapper
 - custom error handling
 - bootstrap and font-awosome
-- ngx-toastr
+- ngx-toastr, ngx-breadcrumb
 
 Project Contians:
 * Core project : for Entities( this is the domain project)
 * Infrastructure project : for BL
 * API project : for the API
 * Client project : the angular frontend
+
 
   NOTE: the project is not completed yet. 😅😅
