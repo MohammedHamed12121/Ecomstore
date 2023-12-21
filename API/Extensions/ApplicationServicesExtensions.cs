@@ -11,7 +11,7 @@ namespace API.Extensions
         {
             // add the repositories for dependency injection
             services.AddScoped<IProductRepository, ProductRepository>();
-
+            services.AddScoped<IBasketRepository, BasketRepository>();
             // adding the generic repository for dependency injection
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 
@@ -20,8 +20,8 @@ namespace API.Extensions
                 options.InvalidModelStateResponseFactory = actionContext =>
                 {
                     var errors = actionContext.ModelState
-                        .Where(e => e.Value.Errors.Count > 0)
-                        .SelectMany(x => x.Value.Errors)
+                        .Where(e => e.Value?.Errors.Count > 0)
+                        .SelectMany(x => x.Value!.Errors)
                         .Select(x => x.ErrorMessage).ToArray();
 
                     var errorResponse = new ApiValidationErrorResponse

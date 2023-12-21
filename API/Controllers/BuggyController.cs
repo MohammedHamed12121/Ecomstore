@@ -31,7 +31,7 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             var thing = _context.Products.Find(42);
-            var thingToRetrun = thing.ToString();
+            var thingToRetrun = thing?.ToString();
             return Ok();
         }
 
