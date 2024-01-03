@@ -1,5 +1,5 @@
 # ECOMSTORE
-this is an e-commerce build using aspdotnet core web api and angular
+this is an e-commerce build using Asp .Net core web api and angular
 
 ![Project Image](https://github.com/MohammedHamed12121/Ecomstore/blob/main/Ecomstore.PNG)
 
@@ -7,8 +7,9 @@ using :
 - generic repository pattern
 - automapper
 - custom error handling
-- bootstrap and font-awosome
+- bootstrap, font-awosome 
 - ngx-toastr, ngx-breadcrumb
+- Redis for basket cashing
 
 Project Contians:
 * Core project : for Entities( this is the domain project)

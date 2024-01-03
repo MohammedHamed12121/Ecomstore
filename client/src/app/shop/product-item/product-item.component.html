@@ -8,10 +8,8 @@
         <!-- <div class="product-description">{{product?.description}}</div> -->
         <div class="price">{{product?.price | currency}}</div>
         <div class="btn-group mt-auto ">
-            <button type="button" class="btn btn-outline-secondary fa fa-shopping-cart  mr-2"></button>
+            <button (click)="addItemToBasket()" type="button" class="btn btn-outline-secondary mr-2"><i class="fa fa-shopping-cart fa-2x text-dark"></i></button>
             <button routerLink="/shop/{{product?.id}}" type="button" class="btn btn-outline-secondary">View</button>
-
         </div>
-        
     </div>
 </div>
